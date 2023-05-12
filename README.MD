@@ -1,6 +1,6 @@
 This project is part of the paper [Jin, B. (2021). Multi-objective A* algorithm for the multimodal multi-objective path planning optimization. In [*2021 IEEE Congress on Evolutionary Computation (CEC)*](https://doi.org/10.1109/CEC45853.2021.9504943), pp. 1704–1711].
 
-![Winner!](certificate.png)
+![Winner](certificate.png)
 
 This project is written in C++ 17.
 
