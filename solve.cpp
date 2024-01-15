@@ -55,9 +55,9 @@ public:
   Matrix<vector<double>> cost_matrix;
   vector<pair<int, double>> factors;
 
-  [[nodiscard]] pair<int, int> size() const { return size(passable); }
+  pair<int, int> size() const { return size(passable); }
 
-  [[nodiscard]] pair<int, int> size(const Matrix<bool> &retained) const {
+  pair<int, int> size(const Matrix<bool> &retained) const {
     int num_areas = 0;
     int num_links = 0;
     for (int x = 0; x < dim_x; x++) {
@@ -74,7 +74,7 @@ public:
     return {num_areas, num_links};
   }
 
-  [[nodiscard]] Matrix<bool> reduce() const {
+  Matrix<bool> reduce() const {
     Matrix<int> depth(dim_x, vector<int>(dim_y, 0));
     Matrix<int> low(dim_x, vector<int>(dim_y, 0));
     Matrix<bool> flag(dim_x, vector<bool>(dim_y, false));
@@ -305,7 +305,7 @@ Problem get_problem(const string &file, const vector<string> &args) {
 
 class BaseSolver {
 public:
-  [[nodiscard]] virtual vector<Group> solve(const Problem &prob) const = 0;
+  virtual vector<Group> solve(const Problem &prob) const = 0;
 };
 
 template <size_t M = 0> class Solver : public BaseSolver {
@@ -360,7 +360,7 @@ private:
   using Queue = map<Cost, set<Triplet, TripletComparator>, CostComparator>;
 
 public:
-  [[nodiscard]] vector<Group> solve(const Problem &prob) const override {
+  vector<Group> solve(const Problem &prob) const override {
     const auto &[start_x, start_y, goal_x, goal_y, dim_x, dim_y, dim_k, dim_c,
                  passable, key_list, key_matrix, cost_matrix, factors] = prob;
 
